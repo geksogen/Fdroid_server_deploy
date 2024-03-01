@@ -15,12 +15,11 @@ sudo apt-get install fdroidserver
 ```
 ### Установка Nginx
 ```Bash
-sudo apt-get install nginx
 nano /etc/nginx/sites-available/default
 ```
 ### Конфигурация Nginx
 ```Bash
-root /var/www;
+root /var/www/html/fdroid;
 
   location / {
   # включаем листинг директорий
@@ -35,21 +34,30 @@ rm -rf index.nginx-debian.html
 
 ### Инициализация repo fdroid
 ```Bash
+export ANDROID_HOME=/usr/lib/android-sdk
 mkdir /var/www/html/fdroid
 sudo chown -R $USER /var/www/html/fdroid
-cd /var/www/html/fdroid
-fdroid init -v
+fdroid init
+cd /repo
+wget -q https://github.com/Darkempire78/OpenCalc/releases/download/v2.3.1/OpenCalc.v2.3.1.apk
+cd ..
+fdroid update -c
+fdroid update
 sudo nano config.yml
+fdroid update
 ```
 
 ```Bash
 repo_url = "http://<IP>/fdroid"
+repo_url: https://localhost/fdroid/repo
+repo_name: F-Droid Repo Demo
+
 ```
 
 ### Скачиваем apk в стор
 ```Bash
 cd /repo
-wget -q https://github.com/Darkempire78/OpenCalc/releases/download/v2.3.1/OpenCalc.v2.3.1.apk
+
 wget -q https://f-droid.org/F-Droid.apk
 ```
 
