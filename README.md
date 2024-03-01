@@ -35,6 +35,27 @@ rm -rf index.nginx-debian.html
 
 ### Инициализация repo fdroid
 ```Bash
-cd /var/www/html
+mkdir /var/www/html/fdroid
+sudo chown -R $USER /var/www/html/fdroid
+cd /var/www/html/fdroid
 fdroid init -v
+sudo nano config.yml
+```
+
+```Bash
+repo_url = "http://<IP>/fdroid"
+```
+
+### Скачиваем apk в стор
+```Bash
+cd /repo
+wget -q https://github.com/Darkempire78/OpenCalc/releases/download/v2.3.1/OpenCalc.v2.3.1.apk
+wget -q https://f-droid.org/F-Droid.apk
+```
+
+### Индексация и подпись apk
+```Bash
+cd ../
+fdroid update --create-metadata
+
 ```
