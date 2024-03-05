@@ -13,11 +13,11 @@ sudo apt install android-sdk-platform-tools
 sudo apt-get install androguard
 sudo apt-get install fdroidserver
 ```
-### Установка Nginx
+### Install Nginx
 ```Bash
 nano /etc/nginx/sites-available/default
 ```
-### Конфигурация Nginx
+### Config Nginx
 ```Bash
 root /var/www/html/fdroid;
 
@@ -32,7 +32,7 @@ cd /var/www/html
 rm -rf index.nginx-debian.html
 ```
 
-### Инициализация repo fdroid
+### Initial repo fdroid
 ```Bash
 export ANDROID_HOME=/usr/lib/android-sdk
 mkdir /var/www/html/fdroid
@@ -54,14 +54,14 @@ repo_name: F-Droid Repo Demo
 
 ```
 
-### Скачиваем apk в стор
+### download apk
 ```Bash
 cd /repo
 
 wget -q https://f-droid.org/F-Droid.apk
 ```
 
-### Индексация и подпись apk
+### Index and sign
 ```Bash
 cd ../
 fdroid update --create-metadata
