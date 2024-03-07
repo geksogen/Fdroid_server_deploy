@@ -102,3 +102,15 @@ sudo ln -s /etc/nginx/sites-available/vedroidrepo.tech /etc/nginx/sites-enabled/
 sudo nginx -s reload
 dig vedroidrepo.tech
 ```
+### Certbot SSL
+```Bash
+sudo snap install --classic certbot
+sudo certbot --version
+sudo certbot --nginx --test-cert
+# y
+# n
+sudo certbot --nginx
+# 2 (Renew)
+#Clear
+sudo certbot renew --dry-run
+```
