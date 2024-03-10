@@ -12,7 +12,8 @@ sudo apt update
 sudo apt install android-sdk-platform-tools
 sudo apt-get install androguard
 sudo apt-get install fdroidserver
-
+```
+#skip
 ### Install Nginx
 ```Bash
 sudo apt-get install nginx
@@ -32,12 +33,14 @@ service nginx restart
 cd /var/www/html
 rm -rf index.nginx-debian.html
 ```
-
+#skip
 ### Initial repo fdroid
 ```Bash
 export ANDROID_HOME=/usr/lib/android-sdk
-mkdir /var/www/html/fdroid
-sudo chown -R $USER /var/www/html/fdroid
+#mkdir /var/www/html/fdroid
+#sudo chown -R $USER /var/www/html/fdroid
+cd /var/www/devopsbyexample.io/html/
+rm -rf index.html
 fdroid init
 cd /repo
 wget -q https://github.com/Darkempire78/OpenCalc/releases/download/v2.3.1/OpenCalc.v2.3.1.apk
@@ -75,16 +78,16 @@ sudo apt update
 sudo mkdir -p /var/www/vedroidrepo.tech/html
 sudo chown -R $USER:$USER /var/www/vedroidrepo.tech/html
 sudo chmod -R 755 /var/www/vedroidrepo.tech
-cd /var/www/devopsbyexample.io/html/
+cd /var/www/devopsbyexample.io/html/ # wil be fdroid repo
 nano index.html
 sudo mkdir /etc/nginx/sites-available/
 sudo mkdir /etc/nginx/sites-enabled/
-sudo nano /etc/nginx/sites-available/vedroidrepo.tech # wil be fdroid repo
+sudo nano /etc/nginx/sites-available/vedroidrepo.tech 
 ###
 server {
         listen 80;
 
-        root /var/www/vedroidrepo.tech/html;
+        root /var/www/vedroidrepo.tech/html/repo;
         index index.html;
 
         server_name vedroidrepo.tech www.vedroidrepo.tech;
